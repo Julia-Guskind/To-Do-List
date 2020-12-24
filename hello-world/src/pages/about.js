@@ -3,6 +3,7 @@ import Header from "../components/header"
 import Container from "../components/container"
 import OurNavbar from "../components/navbar"
 import Today from "../components/date"
+import Lorem from "../components/lorem"
 
 
 export default function About() {
@@ -22,7 +23,9 @@ export default function About() {
       pellentesque habitant morbi tristique. Enim diam vulputate ut pharetra sit amet aliquam id. Congue nisi vitae suscipit tellus mauris
       a. Ornare suspendisse sed nisi lacus sed viverra tellus in. Egestas fringilla phasellus faucibus scelerisque eleifend donec pretium. 
       Etiam non quam lacus suspendisse faucibus interdum posuere.</p>
-      <p>Such wow. Very React.</p>
+
+      <Lorem num={3}></Lorem> 
+
     </Container>
     </div>
   )
