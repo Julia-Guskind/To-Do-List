@@ -4,7 +4,7 @@ import Layout from "../components/layout"
 export default function About({ data }) {
     return (
         <Layout>
-            <h1>About {data.site.siteMetadata.title}</h1>
+            <h1>About {data.site.siteMetadata.title.test2}</h1>
             <p>
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio rerum ex ducimus provident ad nulla sint porro repellat rem quasi.
             </p>
@@ -18,7 +18,7 @@ export default function About({ data }) {
 export const query = graphql` query {
     site {
         siteMetadata {
-            title
+            title 
             }
         }
     }

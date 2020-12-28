@@ -12,7 +12,7 @@ export default function Layout({ children }) {
       query {
         site {
           siteMetadata {
-            title
+            title 
           }
         }
       }
@@ -26,6 +26,7 @@ export default function Layout({ children }) {
         padding-top: ${rhythm(1.5)};
       `}
     >
+
       <Link to={`/`}>
         <h3
           css={css`
@@ -37,6 +38,7 @@ export default function Layout({ children }) {
           {data.site.siteMetadata.title}
         </h3>
       </Link>
+
       <Link
         to={`/about/`}
         css={css`
@@ -45,6 +47,28 @@ export default function Layout({ children }) {
       >
         About
       </Link>
+
+      <br/>
+
+      <Link
+        to={`/my-files/`}
+        css={css`
+          float: right;
+        `}
+      >
+        My Files
+      </Link>
+
+      <a href="http://localhost:8000/___graphql" target="_blank" rel="noopener noreferrer"> GraphiQL </a>
+
+      <br/>
+
+      <Link 
+        to={`/sdf/`}
+        >
+          SDF 
+        </Link>
+
       {children}
     </div>
   )

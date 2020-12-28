@@ -11,17 +11,19 @@ module.exports = {
   siteMetadata: {
     title: 'Great Title',
     today: today,
+    test: 'Test Metadata',
   },
 
   plugins: [
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: `gatsby-source-filesystem`, 
       options: {
         name: `src`,
         path: `${__dirname}/src/`,
       },
     },
     `gatsby-plugin-emotion`,
+    `gatsby-transformer-remark`,
     {
       resolve: 'gatsby-plugin-typography',
       options: {pathToConfigModule: 'src/utils/typography',},
