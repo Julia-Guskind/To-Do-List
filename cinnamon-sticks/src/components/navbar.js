@@ -1,18 +1,20 @@
 import React from "react"
 import { Nav, Navbar, NavDropdown, FormControl, Button, Form } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { css } from "@emotion/react"
+// import { css } from "@emotion/react"
 
 export default function OurNavbar() {
     
    return (
     <Navbar bg="light" expand="lg"
+    /*
     css={css`
     color: blue;
     background-color: green;
-   `}>
+   `} */
+   >
           
-      <Navbar.Brand href="#home">To-Do List</Navbar.Brand>
+      <Navbar.Brand href="/">To-Do List</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
@@ -28,7 +30,7 @@ export default function OurNavbar() {
         </Nav>
         <Form inline>
           <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-          <Button variant="outline-success">Search</Button>
+          <Button variant="outline-primary">Search</Button>
         </Form>
       </Navbar.Collapse>
     </Navbar>
