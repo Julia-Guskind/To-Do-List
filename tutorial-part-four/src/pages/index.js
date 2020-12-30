@@ -15,8 +15,9 @@ export default function Home({ data }) {
             border-bottom: 1px solid;
           `}
         >
-          Amazing Pandas Eating Things
+          PANDAS
         </h1>
+        <h3> Where you can play cards in peace. </h3> <br/>
         <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
         {data.allMarkdownRemark.edges.map(({ node }) => (
           <div key={node.id}>

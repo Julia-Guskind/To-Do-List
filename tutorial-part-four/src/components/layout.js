@@ -59,7 +59,7 @@ export default function Layout({ children }) {
         My Files
       </Link>
 
-      <a href="http://localhost:8000/___graphql" target="_blank" rel="noopener noreferrer"> GraphiQL </a>
+      <a href="http://localhost:9000/___graphql" target="_blank" rel="noopener noreferrer"> GraphiQL </a>
 
       <br/>
 
