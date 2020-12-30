@@ -1,0 +1,46 @@
+html {
+    background-color: #272727;
+}
+
+div {
+    background-color: #272727;
+    color: white;
+}
+
+#basic-navbar-nav {
+    background-color: white;
+}
+
+.mr-auto {
+    background-color: white;
+}
+
+.dropdown {
+    background-color: white;
+}
+
+.nav1 {
+    background-color:white;
+}
+
+h1 {
+    color: #14876C;
+    text-align: center;
+}
+
+h3 {
+    color: #FFE400;
+    text-align: center;
+}
+
+p {
+    color:white;
+}
+
+a:link {
+    color: #FF652F;
+}
+
+a:visited {
+    color: #FF652F;
+}
