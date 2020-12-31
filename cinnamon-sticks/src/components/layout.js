@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import OurNavbar from "../components/navbar"
+import MainNavbar from "../components/navbar"
 
 
 const Layout = ({ location, title, children }) => {
@@ -8,10 +8,11 @@ const Layout = ({ location, title, children }) => {
   const isRootPath = location.pathname === rootPath
   let header
 
+  /*
   if (isRootPath) {
     header = (
       <h1 className="main-heading">
-        <Link to="/">{title}</Link>
+        <Link to="/" style={{display: "block"}}>{title}</Link>
       </h1>
     )
   } else {
@@ -20,12 +21,12 @@ const Layout = ({ location, title, children }) => {
         {title}
       </Link>
     )
-  }
+  } */
 
   // added OurNavbar to page layout
   return (
     <div>
-        <OurNavbar></OurNavbar>
+        <MainNavbar title={title}></MainNavbar>
         <div className="global-wrapper" data-is-root-path={isRootPath}>
           <header className="global-header">{header}</header>
           <main>{children}</main>

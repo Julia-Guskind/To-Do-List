@@ -1,38 +1,37 @@
 import React from "react"
 import { Nav, Navbar, NavDropdown, FormControl, Button, Form } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import { css } from "@emotion/react"
+import { Link, graphql } from "gatsby"
 
-export default function OurNavbar() {
-    
+export default function MainNavbar({ title }) {
+
+  //NOTE: when inline styling, React requires camelCase. Ex: background-color --> backgroundColor
+
    return (
-    <Navbar bg="light" expand="lg"
-    /*
-    css={css`
-    color: blue;
-    background-color: green;
-   `} */
-   >
-          
-      <Navbar.Brand href="/">To-Do List</Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="mr-auto">
-          <Nav.Link href="/">Home</Nav.Link>
-          <Nav.Link href="/about/">About</Nav.Link>
-          <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-            <NavDropdown.Divider />
-            <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-          </NavDropdown>
-        </Nav>
-        <Form inline>
-          <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-          <Button variant="outline-primary">Search</Button>
-        </Form>
-      </Navbar.Collapse>
-    </Navbar>
+     <div className="main-navbar">
+       
+       <h1 style={{marginTop: "1.5rem", color: "#D2691E", fontFamily: "Arial"}}> 
+        <Link to="/" style={{display: "block"}}>
+         {title}
+        </Link></h1>
+        
+       <div className="nav justify-content-center">
+        <Navbar expand="lg">
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="mr-auto">
+              <Nav.Link href="#home">Home</Nav.Link>
+              <Nav.Link href="#link">About</Nav.Link>
+              <Nav.Link href="http://localhost:8000/___graphql">GraphiQL</Nav.Link>
+              <NavDropdown title="Archives" id="basic-nav-dropdown">
+                <NavDropdown.Item href="#action/3.1">Nutmeg</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.2">Cloves</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.3">Cinnamon</NavDropdown.Item>
+              </NavDropdown>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
+      </div>
+    </div>
    )
 }
