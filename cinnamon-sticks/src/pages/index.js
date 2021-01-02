@@ -29,6 +29,7 @@ const BlogIndex = ({ data, location }) => {
     <div>
     <Layout location={location} title={siteTitle}>
       <h1> ENV VAR MSG: {process.env.GATSBY_TEST} </h1>
+      <h2> {process.env.CONTENTFUL_SPACE_ID} </h2>
       <SEO title="All posts" />
       <Bio />
       <ol style={{ listStyle: `none` }}>
