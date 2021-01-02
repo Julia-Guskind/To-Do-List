@@ -9,24 +9,21 @@ export default function MainNavbar({ title }) {
 
    return (
      <div className="main-navbar">
-       
-       <h1 style={{marginTop: "1.5rem", color: "#D2691E", fontFamily: "Arial"}}> 
+       <h1 style={{marginTop: "2rem", color: "#D2691E", fontFamily: "Arial"}}> 
         <Link to="/" style={{display: "block"}}>
          {title}
         </Link></h1>
-        
+
        <div className="nav justify-content-center">
         <Navbar expand="lg">
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-              <Nav.Link href="#home">Home</Nav.Link>
-              <Nav.Link href="#link">About</Nav.Link>
+              <Nav.Link href="/">Home</Nav.Link>
+              <Nav.Link href="/about">About</Nav.Link>
               <Nav.Link href="http://localhost:8000/___graphql">GraphiQL</Nav.Link>
               <NavDropdown title="Archives" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Nutmeg</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">Cloves</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">Cinnamon</NavDropdown.Item>
+                <NavDropdown.Item href="/archives">Nutmeg</NavDropdown.Item>
               </NavDropdown>
             </Nav>
           </Navbar.Collapse>

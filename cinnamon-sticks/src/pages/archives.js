@@ -1,11 +1,10 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-
-import Bio from "../components/bio"
+import ArchiveDropdown from "../components/dropdown"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const BlogIndex = ({ data, location }) => {
+const Archives = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
 
@@ -14,7 +13,6 @@ const BlogIndex = ({ data, location }) => {
       <div>
       <Layout location={location} title={siteTitle}>
         <SEO title="All posts" />
-        <Bio />
         <p>
           No blog posts found. Add markdown posts to "content/blog" (or the
           directory you specified for the "gatsby-source-filesystem" plugin in
@@ -28,15 +26,16 @@ const BlogIndex = ({ data, location }) => {
   return (
     <div>
     <Layout location={location} title={siteTitle}>
-      <h1> ENV VAR MSG: {process.env.GATSBY_TEST} </h1>
       <SEO title="All posts" />
-      <Bio />
+      
       <ol style={{ listStyle: `none` }}>
         {posts.map(post => {
           const title = post.frontmatter.title || post.fields.slug
-
+         
           return (
+            
             <li key={post.fields.slug}>
+            <ArchiveDropdown title={title}></ArchiveDropdown>
               <article
                 className="post-list-item"
                 itemScope
@@ -68,7 +67,7 @@ const BlogIndex = ({ data, location }) => {
   )
 }
 
-export default BlogIndex
+export default Archives
 
 export const pageQuery = graphql`
   query {
@@ -77,14 +76,14 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(sort: { fields: [frontmatter___month], order: DESC }) {
       nodes {
         excerpt
         fields {
           slug
         }
         frontmatter {
-          date(formatString: "MMMM DD, YYYY")
+          year
           title
           description
         }
