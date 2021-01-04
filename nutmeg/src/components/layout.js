@@ -3,16 +3,20 @@ import './base.css'
 import Container from './container'
 // import Navigation from './navigation'
 import MainNavbar from './navbar'
+import Jumbo from '../components/jumbo_wumbo'
 
 class Template extends React.Component {
   render() {
-    const { children } = this.props
+    const { children, title } = this.props
 
     return (
-      <Container>
-        <MainNavbar title="Manual Test Title"></MainNavbar>
-        {children}
-      </Container>
+      <div>
+        <Jumbo title={title}></Jumbo>
+
+        <Container>
+          {children}
+        </Container>
+      </div>
     )
   }
 }

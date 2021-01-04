@@ -70,3 +70,7 @@ a {
   .list-inline li {
     display: inline-block;
   }
+
+.main-navbar {
+  font-size: 1.5em;
+}
