@@ -4,9 +4,9 @@ import get from 'lodash/get'
 import { Helmet } from 'react-helmet'
 import styles from '../components/styles/blog.module.css'
 import Layout from '../components/layout'
-import ArticlePreview from '../components/article-preview'
+import YearPreview from '../components/date-components/year-preview'
 
-class BlogIndex extends React.Component {
+class MonthIndex extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const posts = get(this, 'props.data.allContentfulBlogPost.edges')
@@ -22,7 +22,7 @@ class BlogIndex extends React.Component {
               {posts.map(({ node }) => {
                 return (
                   <li key={node.slug}>
-                    <ArticlePreview article={node} />
+                    <YearPreview year={node}/>
                   </li>
                 )
               })}
@@ -34,10 +34,10 @@ class BlogIndex extends React.Component {
   }
 }
 
-export default BlogIndex
+export default MonthIndex
 
 export const pageQuery = graphql`
-  query BlogIndexQuery {
+  query MonthQuery {
     site {
       siteMetadata {
         title

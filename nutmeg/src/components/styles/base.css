@@ -50,6 +50,19 @@ a {
 }
 
 /**
+ * year grid
+ */
+ .year-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 5vmin;
+}
+
+
+/**
  *
  */
 .section-headline {
@@ -73,4 +86,10 @@ a {
 
 .main-navbar {
   font-size: 1.5em;
+}
+
+.cards {
+  border: 3px dotted #ff7a59;
+  color: #ff7a59;
+  background: blue;
 }

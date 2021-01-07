@@ -1,22 +1,20 @@
 import React from 'react'
-import './base.css'
+import './styles/base.css'
 import Container from './container'
 // import Navigation from './navigation'
-import MainNavbar from './navbar'
-import Jumbo from '../components/jumbo_wumbo'
+import MainNavbar from './navigation/navbar'
 
 class Template extends React.Component {
   render() {
-    const { children, title } = this.props
+    const { children, title, category } = this.props
 
     return (
-      <div>
-        <Jumbo title={title}></Jumbo>
-
-        <Container>
-          {children}
-        </Container>
-      </div>
+        <div>
+          <MainNavbar title={title}></MainNavbar>
+          <Container>
+            {children}   {/* where blog posts are */}
+          </Container>
+        </div>
     )
   }
 }

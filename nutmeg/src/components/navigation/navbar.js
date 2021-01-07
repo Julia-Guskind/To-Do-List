@@ -1,6 +1,6 @@
 import React from "react"
 import { Nav, Navbar, NavDropdown, FormControl, Button, Form } from 'react-bootstrap'
-import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
 import { Link, graphql } from "gatsby"
 
 export default function MainNavbar({ title }) {
@@ -16,7 +16,7 @@ export default function MainNavbar({ title }) {
          {title}
         </Link></h1>
 
-        <Navbar expand="lg" fixed="top">
+        <Navbar expand="lg">
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
