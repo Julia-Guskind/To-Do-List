@@ -1,21 +1,28 @@
 import React from 'react';
 import { Link } from 'gatsby'
 
-const Card= ({ title, name, month }) => {
+const Card= ({ title, name, month, category }) => {
   
   let display = title
   
   if (month) {
     display = name
+    category = "math"
+  }
+  else {
+    category = "science"
   }
 
+  let imagePath = require(`../images/${category}.svg`)
+  //let imagePath = require("../images/health.svg")
+  console.log(imagePath)
   return (
     <Link to={`${title}`} style={{
         textDecoration: "none",
     }}>
         <div class="card">
             <img
-                src="https://mdbootstrap.com/img/new/standard/nature/184.jpg"
+                src= {imagePath}
                 class="card-img-top"
                 alt="..."
             />

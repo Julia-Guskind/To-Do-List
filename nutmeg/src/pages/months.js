@@ -5,6 +5,7 @@ import { Helmet } from 'react-helmet'
 import styles from '../components/styles/blog.module.css'
 import Layout from '../components/layout'
 import YearPreview from '../components/date-components/year-preview'
+import ArticlePreview from '../components/article-preview'
 
 class MonthIndex extends React.Component {
   render() {
@@ -22,13 +23,15 @@ class MonthIndex extends React.Component {
               {posts.map(({ node }) => {
                 return (
                   <li key={node.slug}>
-                    <YearPreview year={node}/>
+                    {/*<YearPreview year={node} category={node.category}/>*/}
+                    <ArticlePreview article={node} year={node.year} month={node.month} category={node.category}/>
                   </li>
                 )
               })}
             </ul>
           </div>
         </div>
+        <div>Icons made by <a href="https://www.flaticon.com/authors/smartline" title="Smartline">Smartline</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
       </Layout>
     )
   }
@@ -50,6 +53,8 @@ export const pageQuery = graphql`
           slug
           publishDate(formatString: "MMMM Do, YYYY")
           tags
+          month
+          year
           category
           heroImage {
             fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {

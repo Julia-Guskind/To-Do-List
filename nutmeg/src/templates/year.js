@@ -31,13 +31,14 @@ class YearTemplate extends React.Component {
               {monthNum.map((month) => {
                 return (
                   <li key={month}>
-                    <YearPreview date={ month } name={ months[month - 1] } month={ true }/>
+                    <YearPreview date={ month } name={ months[month - 1] } month={ true } />
                   </li>
                 )
               })}
             </ul>
           </div>
         </div>
+        <div>Icons made by <a href="https://www.flaticon.com/authors/smartline" title="Smartline">Smartline</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
     </Layout>
     )
   }
