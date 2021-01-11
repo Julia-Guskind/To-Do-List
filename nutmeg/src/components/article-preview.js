@@ -6,8 +6,8 @@ import styles from './styles/article-preview.module.css'
 
 
 const ArticlePreview= ({ article, year, month, category }) => {
-  console.log(category)
-  let imagePath = require(`../images/${category}.svg`)
+  console.log(article)
+  let imagePath = require(`../images/${article.category}.svg`)
 
     return (
       <div className={styles.preview}>

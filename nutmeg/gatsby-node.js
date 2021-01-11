@@ -61,6 +61,7 @@ exports.createPages = ({ graphql, actions }) => {
                   year
                   month
                   day
+                  category
                 }
               }
             }

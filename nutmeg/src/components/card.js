@@ -7,10 +7,10 @@ const Card= ({ title, name, month, category }) => {
   
   if (month) {
     display = name
-    category = "math"
+    category = "Math"
   }
   else {
-    category = "science"
+    category = "Science"
   }
 
   let imagePath = require(`../images/${category}.svg`)

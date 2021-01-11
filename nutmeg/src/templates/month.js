@@ -78,6 +78,7 @@ export const pageQuery = graphql`
       edges {
         node {
           title
+          category
           slug
           year
           month
