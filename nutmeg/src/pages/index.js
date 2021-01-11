@@ -8,9 +8,8 @@ import Layout from '../components/layout'
 import ArticlePreview from '../components/article-preview'
 import Carousel from 'react-bootstrap/Carousel'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import CarouselPreview from '../components/carousel-preview'
+import CarPrev from '../components/car-preview'
 import { CarouselItem } from 'react-bootstrap'
-import styles from '../components/styles/article-preview.module.css'
 
 class RootIndex extends React.Component {
   render() {
@@ -27,36 +26,14 @@ class RootIndex extends React.Component {
           <div className="wrapper">
             <h2 className="section-headline">Recent articles</h2>
         <Carousel>
-          {posts.map(({ node }) => {
+          {posts.map(({ node }) => { // map each node (blog post) to a carousel item
                 return (
-                  <CarouselItem>
-                    test
-                  </CarouselItem>
+                  <Carousel.Item interval={1000}>
+                    <CarPrev article={node} year={node.year} month={node.month} category={node.category} />
+                  </Carousel.Item>
                 )
                 })}
         </Carousel>
-            {/*
-            <ul className="article-list">
-              {posts.map(({ node }) => {
-                return (
-                  <li key={node.slug}>
-                    <ArticlePreview article={node} year={node.year} month={node.month} />
-                  </li>
-                )
-              })}
-            </ul>
-            */}
-            {/*
-            {posts.map(({ node }) => {
-                return (
-                  <Carousel.Item interval={500}>
-                    <Link to={`/archives/${node.year}/${node.month}/${node.slug}`}>
-                      <ArticlePreview article={node} year={node.year} month={node.month} />
-                    </Link>
-                  </Carousel.Item>
-                )
-            })}        
-            */}
           </div>
         </div>
       </Layout>
