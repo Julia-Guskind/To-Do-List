@@ -59,7 +59,7 @@ typings/
 .env.development
 
 # build folder
-public
+# public
 
 # gatsby cache folder
 .cache

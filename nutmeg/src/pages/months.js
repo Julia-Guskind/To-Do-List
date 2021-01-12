@@ -6,6 +6,7 @@ import styles from '../components/styles/blog.module.css'
 import Layout from '../components/layout'
 import YearPreview from '../components/date-components/year-preview'
 import ArticlePreview from '../components/article-preview'
+import Card from '../components/card'
 
 class MonthIndex extends React.Component {
   render() {
@@ -23,8 +24,10 @@ class MonthIndex extends React.Component {
               {posts.map(({ node }) => {
                 return (
                   <li key={node.slug}>
-                    {/*<YearPreview year={node} category={node.category}/>*/}
+                    {/*<YearPreview year={node} category={node.category}/>
                     <ArticlePreview article={node} year={node.year} month={node.month} category={node.category}/>
+                */}
+                    <Card title={node.title} category={node.category}/>
                   </li>
                 )
               })}

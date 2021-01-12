@@ -25,15 +25,15 @@ class RootIndex extends React.Component {
         <Helmet title={siteTitle} />
           <div className="wrapper">
             <h2 className="section-headline">Recent articles</h2>
-        <Carousel>
-          {posts.map(({ node }) => { // map each node (blog post) to a carousel item
-                return (
-                  <Carousel.Item interval={1000}>
-                    <CarPrev article={node} year={node.year} month={node.month} category={node.category} />
-                  </Carousel.Item>
-                )
-                })}
-        </Carousel>
+              <Carousel>
+                {posts.map(({ node }) => { // map each node (blog post) to a carousel item
+                      return (
+                        <Carousel.Item interval={1000}>
+                          <CarPrev article={node} year={node.year} month={node.month} category={node.category} />
+                        </Carousel.Item>
+                      )
+                      })}
+              </Carousel>
           </div>
         </div>
       </Layout>

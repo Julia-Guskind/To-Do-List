@@ -12,7 +12,9 @@ import heroStyles from '../components/styles/hero.module.css'
 class MonthTemplate extends React.Component {
   render() {
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
-    const posts = get(this, 'props.data.allContentfulBlogPost.edges')
+    const allPosts = get(this, 'props.data.allContentfulBlogPost.edges')
+    const posts = allPosts.filter(post => post.node.title)
+    //const posts = get(this, 'props.data.allContentfulBlogPost.edges')
 
     let currentURL = this.props.location.href
     currentURL = currentURL.split('/')
@@ -74,7 +76,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allContentfulBlogPost(filter: {month: {eq: $month}, year: {eq: $year}}, sort: { fields: [publishDate], order: DESC }) {
+    allContentfulBlogPost(filter: {month: {eq: $month}, year: {eq: $year}}, sort: { fields: [publishDate], order: ASC }) {
       edges {
         node {
           title
@@ -91,6 +93,7 @@ export const pageQuery = graphql`
             }
           }
           description {
+            description
             childMarkdownRemark {
               html
             }

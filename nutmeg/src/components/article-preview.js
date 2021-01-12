@@ -9,6 +9,30 @@ const ArticlePreview= ({ article, year, month, category }) => {
   console.log(article)
   let imagePath = require(`../images/${article.category}.svg`)
 
+  return (
+    <Link to={`/archives/${year}/${month}/${article.slug}`}>
+        <div class="card">
+            <img
+                src= {imagePath}
+                class="card-img-top"
+                alt="..."
+            />
+            <div class="card-body">
+                <h4 class="card-title" style={{
+                    alignContent: "center",
+                }}>{article.title}</h4>
+                <p class="card-text">
+                {article.description.description}
+                </p>
+                <a href="#!" class="btn btn-primary">Button</a>
+            </div>
+        </div>
+    </Link>
+    )
+  }
+
+export default ArticlePreview;
+    {/*}  
     return (
       <div className={styles.preview}>
         <img
@@ -26,10 +50,10 @@ const ArticlePreview= ({ article, year, month, category }) => {
           }}
         />
       </div> 
-    )
-  }
+        ) */}
+  
 
-export default ArticlePreview;
+
 
 /*
 export default ({ article, year, month, category }) => (

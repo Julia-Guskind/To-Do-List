@@ -11,15 +11,16 @@ const CarPrev = ({ article, year, month, category }) => {
   return (
 
   <div className={styles.preview}>
+    <Link to={`/archives/${year}/${month}/${article.slug}`}>
     <img
           src={imagePath}
           class="card-img-top"
           alt="..."
     />
     <Carousel.Caption>
-      <h3 className={styles.previewTitle}>
-          <Link to={`/archives/${year}/${month}/${article.slug}`}>{article.title}</Link>
-      </h3>
+      
+        {article.title}
+      
       <p>{`${month}/${article.day}/${year}`}</p>
       <p
           dangerouslySetInnerHTML={{
@@ -27,7 +28,8 @@ const CarPrev = ({ article, year, month, category }) => {
         }}
       />
     </ Carousel.Caption>
-    </div>  
+    </Link>
+  </div>  
   )
 }
 
