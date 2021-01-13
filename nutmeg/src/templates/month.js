@@ -16,23 +16,53 @@ class MonthTemplate extends React.Component {
     const posts = allPosts.filter(post => post.node.title)
     //const posts = get(this, 'props.data.allContentfulBlogPost.edges')
 
+    /*
     let currentURL = this.props.location.href
     currentURL = currentURL.split('/')
     
     const month = currentURL.pop()
     const year = currentURL.pop()
     
-    currentURL = "/" + year + "/" + month
+    currentURL = "/" + year + "/" + month 
+
+    posts.map(({ node }) => {
+      if (node.year == year && node.month == month) {
+          foundPost = true;
+      }}) */
     
     // need to know: year and month --> display relevant blog posts
-    
+    const monthNum = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    const yearNum = [2017, 2020, 2021]
+
     let foundPost = false;
     
-    posts.map(({ node }) => {
-        if (node.year == year && node.month == month) {
-            foundPost = true;
-        }})
+    let nodeArr = []
+    
+    function showPosts() {
+      for (let yearIndex = 0; yearIndex < yearNum.length; ++yearIndex) {
+        for (let monthIndex = 0; monthIndex < monthNum.length; ++monthIndex) {
+          posts.map(({ node }) => {
+            if (node.year == yearNum[yearIndex] && node.month == monthNum[monthIndex]) {
+              nodeArr.push(node)    
+            }
+          })
+        
+      }}
+      }
 
+      showPosts()
+      
+
+    for (let yearIndex = 0; yearIndex < yearNum.length; ++yearIndex) {
+      for (let monthIndex = 0; monthIndex < monthNum.length; ++monthIndex) {
+        posts.map(({ node }) => {
+          if (node.year == yearNum[yearIndex] && node.month == monthNum[monthIndex]) {
+              foundPost = true;
+          }})
+      }
+    }
+    
+console.log(nodeArr)
     // No posts found for given month and year
     if (! foundPost) {
         return (
@@ -42,21 +72,22 @@ class MonthTemplate extends React.Component {
         )
     }
     
+    
     // Display blog posts found for given month and year
     else {
         return (
         <Layout location={this.props.location} title={siteTitle}>
                 <ul className="article-list">
-                {posts.map(({ node }) => {
-                    if (node.year == year && node.month == month) {
-                        foundPost = true;
-                        return (
-                            <li key={node.slug}>
-                            <ArticlePreview article={node} year={year} month={month} />
-                            </li>
-                        )}
-                    })
-                }
+
+                
+                 {nodeArr.map(( node ) => {
+                   console.log(node)
+                   return (
+                    <li key={node.slug}>
+                    <ArticlePreview article={node} year={node.year} month={node.month} />
+                    </li>
+                  )
+                 })}
                 </ul>
         </Layout>
         )
@@ -89,7 +120,7 @@ export const pageQuery = graphql`
           tags
           heroImage {
             fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
-              ...GatsbyContentfulFluid_tracedSVG
+              ...GatsbyContentfulFluid
             }
           }
           description {
@@ -103,3 +134,18 @@ export const pageQuery = graphql`
     }
   }
 `
+
+
+
+
+
+{/*posts.map(({ node }) => {
+                    if (node.year == year && node.month == month) {
+                        foundPost = true;
+                        return (
+                            <li key={node.slug}>
+                            <ArticlePreview article={node} year={year} month={month} />
+                            </li>
+                        )}
+                    })
+                } */}
