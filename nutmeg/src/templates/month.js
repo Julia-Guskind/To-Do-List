@@ -100,7 +100,7 @@ export default MonthTemplate
 
 // filter query based on year and month
 export const pageQuery = graphql`
-  query DayQuery($month: Int, $year: Int) {
+  query DaysQuery($month: Int, $year: Int) {
     
     site {
       siteMetadata {
