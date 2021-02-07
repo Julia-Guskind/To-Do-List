@@ -1,6 +1,8 @@
 require("dotenv").config({
-  path: `.env.production`,
+  path: `.env.development`,
 });
+
+// ^ env.development OR env.production
 
 //${process.env.NODE_ENV}
 
